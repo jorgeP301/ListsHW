@@ -1,10 +1,8 @@
-package 2720.hw1;
-//
+package cs2720.lists;
 
-public class NodeType {
+public class NodeType  {
 
     public ItemType info;
-
     public NodeType next;
 
 }

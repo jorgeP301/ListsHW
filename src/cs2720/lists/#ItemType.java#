@@ -1,5 +1,5 @@
-//
-//
+package cs2720.lists;
+
 public class ItemType {
 
     private int value;
@@ -7,7 +7,6 @@ public class ItemType {
     /**
      *constructor
      */
-
     public ItemType(int num) {
         initialize(num);
     }
