@@ -51,17 +51,22 @@ public class SortedLinkedList {
             NodeType node2;
             node1 = head;
             node2 = null;
-            while(node1 != null && item.compareTo(node1.info) == 1) {
-                node2 = node1;
-                node1 = node1.next;
+            if(searchItem(item) != 0) { //inseritng duplicate
+                System.out.println("sorry you cannot add duplicates");
             }
-            if (node2 == null) { //insert at beginning
-                node.next = node1;
-                head = node;
-            }
-            else { //general case
-                node2.next = node;
-                node.next = node1;
+            else {
+                while(node1 != null && item.compareTo(node1.info) == 1) {
+                    node2 = node1;
+                    node1 = node1.next;
+                }
+                if(node2 ==null) { // insert at beginning
+                    node.next = node1;
+                    head = node;
+                }
+                else {
+                    node2.next = node;
+                    node.next = node1;
+                }
             }
         }
     }
@@ -105,7 +110,7 @@ public class SortedLinkedList {
                 index++;
             }
         }
-        index = 0;
+        index = 0;//means the item is not in the list
         return index;
     }
 
@@ -139,9 +144,9 @@ public class SortedLinkedList {
 
 
     public void mergeList(SortedLinkedList l) {
-
+        l.currentPos = l.head;
         while(l.currentPos != null) {
-            this.insertItem(l.currentPos.info);
+            insertItem(l.currentPos.info);
             l.currentPos = l.currentPos.next;
         }
     }
